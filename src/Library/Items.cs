@@ -2,7 +2,7 @@ using System;
 
 namespace Library
 {
-    public class Sword
+    public class Items
     {
         private int damage {get; set;}
         public int Damage{get;}
