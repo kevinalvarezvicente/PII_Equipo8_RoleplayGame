@@ -1,0 +1,62 @@
+[
+  {
+    "name": "CharacterWizard",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Attack",
+      "Defend",
+      "SpecialSkill"
+    ],
+    "collaborators": [
+      "Items"
+    ]
+  },
+  {
+    "name": "CharacterElves",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Attack",
+      "Defend",
+      "SpecialSkill"
+    ],
+    "collaborators": [
+      "Items"
+    ]
+  },
+  {
+    "name": "CharacterDwarves",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Attack",
+      "Defend",
+      "SpecialSkill"
+    ],
+    "collaborators": [
+      "Items"
+    ]
+  },
+  {
+    "name": "Items",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Damage",
+      "Defense",
+      "Add",
+      "Change",
+      "Remove"
+    ],
+    "collaborators": [
+      "CharacterWizard",
+      "CharacterElves",
+      "CharacterDwarves"
+    ]
+  }
+]
