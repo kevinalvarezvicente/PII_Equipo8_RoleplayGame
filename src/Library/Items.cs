@@ -15,12 +15,12 @@ namespace Library
         public int Duration { get; private set; }
 
         public bool Broken { get; set; }
-
-        public Items (int damage, int defense, string name)
-        {
-            this.Name = name;
-            this.Damage = damage;
-            this.Defense = defense;
+      
+        public Items (String name,int AttackValue, int DefendValue, int MagicLevel){
+            this.name = name;
+            this.AttackValue = AttackValue;
+            this.DefendValue = DefendValue;
+            this.MagicLevel = MagicLevel;
             this.Duration = 100;
             this.Broken = false;
         }
@@ -34,11 +34,6 @@ namespace Library
             return this.Name;
         }
 
-        public bool IfWeaponIsBroken(){
-            if(this.Duration == 0){
-                this.Broken = true;
-            }
-            return this.Broken;
         }   
     }
 } 

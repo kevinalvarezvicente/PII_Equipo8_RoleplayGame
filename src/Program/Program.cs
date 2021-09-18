@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Library;
 
 namespace Program
@@ -16,6 +16,10 @@ namespace Program
             D1.Heal(D2);
             D1.EquipWeapons(Martillo);
             D1.UnequipWeapons(Martillo);
+            Elves E2 = new Elves("ElveSword");
+            Elves E1 = new Elves("ElveSword");
+            E2.getAttack();
+            E1.Attack(E2);
         }
     }
 }
