@@ -1,6 +1,4 @@
 using System;
-
-
 namespace Library
 {
     public class Elves
@@ -8,67 +6,76 @@ namespace Library
         public int IdElves{get; private set;}
         public string Name {get;}
         public int Health {get; private set;}
-        public int Attack {get; private set;}
+        public int Damage {get; private set;}
         public int Defense {get; private set;}
-        public string[] ObjectItem {get; private set;}
+        public Array[] ObjectItem {get; private set;}
+        public bool Broken { get; set; }
+        public int HealSkill { get; set; }
 
-
+ 
         public Elves (string name)
         {
             this.Name = name;
             this.Health = 150;
-            this.Attack = 20;
+            this.Damage = 20;
             this.Defense = 80;
+            this.Broken = false;
+            this.HealSkill = 10;
         }
-
+ 
         void AddItem(Items item) 
         {
-
+ 
         }
-
+ 
         void UpdateItem(Items item)
         {
-
+ 
         }
-
+ 
         void DeleteItem(Items item)
         {
-
+ 
         }
-
-        int getAttack()
+ 
+        public int getAttack()
         {
-           return this.Attack;
+            Console.WriteLine(this.Damage);
+            return this.Damage;
         }
-
-        int getDefense()
+ 
+        public int getDefense()
         {
            return this.Defense;
         }
 
-        public string HealWizard(Wizard wizard)
-        {
-            
+        public void Attack(Elves enemy){
+            int i = 0;
+                while(enemy.Health > 0 && i == 0){
+                    enemy.Health = enemy.Health - this.Damage;
+                    Console.WriteLine(enemy.Health);
+                    i = i + 1;
+                } 
+        }
+        public void Heal(Elves ally){
+            while(ally.Health > 0 && ally.Health < 100){
+                    ally.Health = ally.Health + this.HealSkill;
+                    if (ally.Health > 100){
+                        ally.Health = 100;
+                    }
+                    Console.WriteLine($"La vida del aliado es: {ally.Health}");
+            }  
         }
 
-        public string HealDwarve(Dwarves dwarve)
+        public void AddSword(Items item)
         {
-            
+            if(Broken == false)
+            {
+                this.Damage = this.Damage + item.Damage;
+                this.Defense = this.Defense + item.Defense;
+                this.Health = this.Health + this.Defense;
+                
+            }
         }
-
-        public string AttackWizard(Wizard wizard)
-        {
-            
-        }
-
-        public string AttackDwarve(Dwarves dwarve)
-        {
-            
-        }
-
-
-
-
-
     }
 }
