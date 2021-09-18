@@ -47,8 +47,8 @@ namespace Library
         {
             if(Broken == false)
             {
-                this.Damage = this.Damage + item.Damage;
-                this.Defense = this.Defense + item.Defense;
+                this.Damage = this.Damage + item.AttackValue;
+                this.Defense = this.Defense + item.DefendValue;
                 this.Health = this.Health + this.Defense;
                 
             }
@@ -58,8 +58,8 @@ namespace Library
         {
             if(Broken == false)
             {
-                this.Damage = this.Damage + item.Damage;
-                this.Defense = this.Defense + item.Defense;
+                this.Damage = this.Damage + item.AttackValue;
+                this.Defense = this.Defense + item.DefendValue;
                 this.Health = this.Health + this.Defense;
                 
             }
@@ -69,8 +69,8 @@ namespace Library
         {
             if(Broken == true)
             {
-                this.Damage = this.Damage - item.Damage;
-                this.Defense = this.Defense - item.Defense;
+                this.Damage = this.Damage - item.AttackValue;
+                this.Defense = this.Defense - item.DefendValue;
                 this.Health = this.Health - this.Defense;
                 
             }
