@@ -22,5 +22,11 @@ namespace Library
         {
             return this.Name;
         }
+
+        public Staff(int damage, string Name)
+        {
+            this.Damage = damage;
+            this.Name = Name;
+        }
     }
 } 
