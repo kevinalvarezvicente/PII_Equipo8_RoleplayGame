@@ -25,6 +25,7 @@ namespace Library
             this.Broken = false;
         }
 
+
         public int GetDamage()
         {
             return this.Damage;
@@ -35,5 +36,6 @@ namespace Library
         }
 
         }   
+
     }
 } 
