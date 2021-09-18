@@ -11,8 +11,7 @@ namespace Library
         public int Defense {get; private set;}
         public Array[] ObjectItem {get; private set;}
         public bool Broken { get; set; }
-        public int HealSkill { get; set; }
-
+ 
         public Elves (string name)
         {
             this.Name = name;
@@ -31,9 +30,9 @@ namespace Library
  
         public int getDefense()
         {
-           Console.WriteLine(this.Defense);
            return this.Defense;
         }
+
 
         public void Attack(Elves enemy){
             int i = 0;
@@ -63,5 +62,9 @@ namespace Library
                 
             }
         }
+
     }
+
+
+}
 }

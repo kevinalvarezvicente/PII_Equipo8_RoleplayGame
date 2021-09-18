@@ -53,18 +53,7 @@ namespace Library
                 
             }
         }
-
-        public void AddSword(Items item)
-        {
-            if(Broken == false)
-            {
-                this.Damage = this.Damage + item.Damage;
-                this.Defense = this.Defense + item.Defense;
-                this.Health = this.Health + this.Defense;
-                
-            }
-        }
-
+        
         public void UnequipWeapons(Items item)
         {
             if(Broken == true)
