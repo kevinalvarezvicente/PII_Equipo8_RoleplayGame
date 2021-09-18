@@ -21,7 +21,8 @@ namespace Library
             this.Defense = 80;
             this.Broken = false;
             this.HealSkill = 10;
-          
+        }
+
         public int getAttack()
         {
             Console.WriteLine(this.Damage);
@@ -33,8 +34,6 @@ namespace Library
            Console.WriteLine(this.Defense);
            return this.Defense;
         }
-
-    }
 
         public void Attack(Elves enemy){
             int i = 0;
