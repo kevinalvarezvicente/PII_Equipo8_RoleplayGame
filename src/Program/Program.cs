@@ -20,6 +20,9 @@ namespace Program
             Items Botella = new Items(16, 32, "Botella");
             Elves E2 = new Elves("ElveSword");
             Elves E1 = new Elves("ElveSword");
+            Elves E3 = new Elves("Eduardo");
+            Items Bate = new Items(20, 30, "Bate");
+            Items Cuchara = new Items(15, 45, "Cuchara");
             E2.getAttack();
             E1.Attack(E2);
         }
