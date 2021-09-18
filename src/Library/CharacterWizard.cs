@@ -14,6 +14,7 @@ namespace Library
             this.Health = 100;
             this.Damage = 25;
             this.Defense = 70;
+            this.Broken = false; //Broken
             this.MagicLevel = 0.5;
         }
 
