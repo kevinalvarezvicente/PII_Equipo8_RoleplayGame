@@ -53,7 +53,7 @@ namespace Library
             int i = 0;
                 while(enemy.Health > 0 && i == 0){
                     enemy.Health = enemy.Health - this.Damage;
-                    Console.WriteLine(enemy.Health);
+                    Console.WriteLine($"La vida del enemigo después del ataque es: {enemy.Health}");
                     i = i + 1;
                 } 
         }
@@ -63,7 +63,7 @@ namespace Library
                     if (ally.Health > 100){
                         ally.Health = 100;
                     }
-                    Console.WriteLine($"La vida del aliado es: {ally.Health}");
+                    Console.WriteLine($"La vida del aliado después de curarlo es: {ally.Health}");
             }  
         }
 
