@@ -16,7 +16,7 @@ namespace Library
 
         public bool Broken { get; set; }
 
-        public Item (int damage, string name)
+        public Items (int damage, int defense, string name)
         {
             this.Name = name;
             this.Damage = damage;
@@ -27,33 +27,11 @@ namespace Library
 
         public int GetDamage()
         {
-            return this.damage;
+            return this.Damage;
         }
         public string GetName()
         {
-            return this.name;
-        }
-
-        public void EquipWeapons(Dwarves dwarve)
-        {
-            if(Broken == false)
-            {
-                dwarve.Damage = dwarve.Damage + this.Damage;
-                dwarve.Defense = dwarve.Defense + this.Defense;
-                dwarve.Health = dwarve.Health + dwarve.Defense;
-                
-            }
-        }
-
-        public void UnequipWeapons(Dwarves dwarve)
-        {
-            if(Broken == true)
-            {
-                dwarve.Damage = dwarve.Damage - this.Damage;
-                dwarve.Defense = dwarve.Defense - this.Defense;
-                dwarve.Life = dwarve.Life - dwarve.Defense;
-                
-            }
+            return this.Name;
         }
 
         public bool IfWeaponIsBroken(){
