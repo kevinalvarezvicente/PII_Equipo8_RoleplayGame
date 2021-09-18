@@ -5,7 +5,7 @@ namespace Library
     public class CharacterWizard
     {
 
-        Items[] WizardItems = 
+        Items[] WizardItems;
 
         public CharacterWizard(int IdWizard,string name)
         {
@@ -38,17 +38,6 @@ namespace Library
         }
 
         public void EquipWeapons(Items item)
-        {
-            if(Broken == false)
-            {
-                this.Damage = this.Damage + item.Damage;
-                this.Defense = this.Defense + item.Defense;
-                this.Health = this.Health + this.Defense;
-                
-            }
-        }
-
-        public void AddSword(Items item)
         {
             if(Broken == false)
             {
