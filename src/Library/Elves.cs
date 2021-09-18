@@ -5,11 +5,12 @@ namespace Library
 {
     public class Elves
     {
+        public int IdElves{get; private set;}
         public string Name {get;}
         public int Health {get; private set;}
         public int Attack {get; private set;}
         public int Defense {get; private set;}
-        public string Item {get; private set;}
+        public string[] ObjectItem {get; private set;}
 
 
         public Elves (string name)
@@ -20,12 +21,51 @@ namespace Library
             this.Defense = 80;
         }
 
-        Sword Sword = new Sword(20, "ElveSword");
-        public void AddSword()
+        void AddItem(Items item) 
         {
-            this.Item = Sword.GetName();
-            this.Attack = Attack +  Sword.GetDamage();
+
         }
+
+        void UpdateItem(Items item)
+        {
+
+        }
+
+        void DeleteItem(Items item)
+        {
+
+        }
+
+        int getAttack()
+        {
+           return this.Attack;
+        }
+
+        int getDefense()
+        {
+           return this.Defense;
+        }
+
+        public string HealWizard(Wizard wizard)
+        {
+            
+        }
+
+        public string HealDwarve(Dwarves dwarve)
+        {
+            
+        }
+
+        public string AttackWizard(Wizard wizard)
+        {
+            
+        }
+
+        public string AttackDwarve(Dwarves dwarve)
+        {
+            
+        }
+
 
 
 
