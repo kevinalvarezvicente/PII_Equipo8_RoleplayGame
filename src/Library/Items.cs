@@ -11,10 +11,5 @@ namespace Library
             this.MagicLevel = MagicLevel;
         }
 
-        public Staff(int damage, string Name)
-        {
-            this.Damage = damage;
-            this.Name = Name;
-        }
     }
 } 
