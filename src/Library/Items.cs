@@ -4,17 +4,11 @@ namespace Library
 {
     public class Items
     {
-        private int damage {get; set;}
-        public int Damage{get;}
-        public string Name{get; set;}
-
-        public int GetDamage()
-        {
-            return this.Damage;
-        }
-        public string GetName()
-        {
-            return this.Name;
+        public Items (String name,int AttackValue, int DefendValue, int MagicLevel){
+            this.name = name;
+            this.AttackValue = AttackValue;
+            this.DefendValue = DefendValue;
+            this.MagicLevel = MagicLevel;
         }
 
         public Staff(int damage, string Name)
