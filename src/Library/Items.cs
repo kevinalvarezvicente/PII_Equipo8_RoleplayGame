@@ -33,12 +33,6 @@ namespace Library
         {
             return this.Name;
         }
-
-        public bool IfWeaponIsBroken(){
-            if(this.Duration == 0){
-                this.Broken = true;
-            }
-            return this.Broken;
-        }   
+  
     }
 } 
