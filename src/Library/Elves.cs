@@ -20,22 +20,6 @@ namespace Library
             this.Defense = 80;
             this.Broken = false;
         }
- 
-        void AddItem(Items item) 
-        {
- 
-        }
- 
-        void UpdateItem(Items item)
-        {
- 
-        }
- 
-        void DeleteItem(Items item)
-        {
- 
-        }
- 
         public int getAttack()
         {
             Console.WriteLine(this.Damage);
@@ -46,27 +30,7 @@ namespace Library
         {
            return this.Defense;
         }
- /*
-        public string HealWizard(Wizard wizard)
-        {
-            
-        }
- 
-        public string HealDwarve(Dwarves dwarve)
-        {
-            
-        }
- 
-        public string AttackWizard(Wizard wizard)
-        {
-            
-        }
- 
-        public string AttackDwarve(Dwarves dwarve)
-        {
-            
-        }
-*/
+        
         public void AddSword(Items item)
         {
             if(Broken == false)

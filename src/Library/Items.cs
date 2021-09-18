@@ -4,8 +4,6 @@ namespace Library
 {
     public class Items
     {
-        ///private int damage {get; set;}
-
         public string Name { get; private set; }
 
         public int Damage { get; private set; }
@@ -16,11 +14,17 @@ namespace Library
 
         public bool Broken { get; set; }
 
-        public Items (int damage, int defense, string name)
-        {
+        public int AttackValue { get; set; }
+
+        public int DefendValue{ get; set; }
+
+        public int MagicLevel { get; set; }
+      
+        public Items (String name,int AttackValue, int DefendValue, int MagicLevel){
             this.Name = name;
-            this.Damage = damage;
-            this.Defense = defense;
+            this.AttackValue = AttackValue;
+            this.DefendValue = DefendValue;
+            this.MagicLevel = MagicLevel;
             this.Duration = 100;
             this.Broken = false;
         }
