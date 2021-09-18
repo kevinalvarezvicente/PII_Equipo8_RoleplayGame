@@ -19,18 +19,39 @@ namespace Library
             this.Damage = 20;
             this.Defense = 80;
             this.Broken = false;
+            this.HealSkill = 10;
         }
+
         public int getAttack()
         {
             Console.WriteLine(this.Damage);
             return this.Damage;
         }
  
-        int getDefense()
+        public int getDefense()
         {
            return this.Defense;
         }
-        
+
+
+        public void Attack(Elves enemy){
+            int i = 0;
+                while(enemy.Health > 0 && i == 0){
+                    enemy.Health = enemy.Health - this.Damage;
+                    Console.WriteLine($"La vida del enemigo despues del ataque es: {enemy.Health}");
+                    i = i + 1;
+                } 
+        }
+        public void Heal(Elves ally){
+            while(ally.Health > 0 && ally.Health < 100){
+                    ally.Health = ally.Health + this.HealSkill;
+                    if (ally.Health > 100){
+                        ally.Health = 100;
+                    }
+                    Console.WriteLine($"La vida del aliado despues de curarlo es: {ally.Health}");
+            }  
+        }
+
         public void AddSword(Items item)
         {
             if(Broken == false)
@@ -45,4 +66,5 @@ namespace Library
     }
 
 
+}
 }
