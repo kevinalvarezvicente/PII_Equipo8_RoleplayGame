@@ -28,7 +28,7 @@ namespace Library
             return this.Damage;
         }
  
-        int getDefense()
+        public int getDefense()
         {
            Console.WriteLine(this.Defense);
            return this.Defense;
