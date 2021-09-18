@@ -1,4 +1,5 @@
 using System;
+
 namespace Library
 {
     public class Elves
@@ -12,7 +13,6 @@ namespace Library
         public bool Broken { get; set; }
         public int HealSkill { get; set; }
 
- 
         public Elves (string name)
         {
             this.Name = name;
@@ -21,33 +21,20 @@ namespace Library
             this.Defense = 80;
             this.Broken = false;
             this.HealSkill = 10;
-        }
- 
-        void AddItem(Items item) 
-        {
- 
-        }
- 
-        void UpdateItem(Items item)
-        {
- 
-        }
- 
-        void DeleteItem(Items item)
-        {
- 
-        }
- 
+          
         public int getAttack()
         {
             Console.WriteLine(this.Damage);
             return this.Damage;
         }
  
-        public int getDefense()
+        int getDefense()
         {
+           Console.WriteLine(this.Defense);
            return this.Defense;
         }
+
+    }
 
         public void Attack(Elves enemy){
             int i = 0;
