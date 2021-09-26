@@ -55,6 +55,13 @@ namespace Library
         }
         public void UnequipWeapons(Items item)
         {
+                this.Damage = this.Damage - item.AttackValue;
+                this.Defense = this.Defense - item.DefendValue;
+                this.Health = this.Health - this.Defense;
+        }
+
+        public void UnequipBrokenWeapons(Items item)
+        {
             if(item.Broken == true)
             {
                 this.Damage = this.Damage - item.AttackValue;
@@ -81,12 +88,14 @@ namespace Library
         }
 
         public void Heal(Dwarves ally){
-            while(ally.Health > 0 && ally.Health < 100){
+            int i = 0;
+            while(ally.Health > 0 && ally.Health < 100 && i == 0){
                     ally.Health = ally.Health + this.HealSkill;
                     if (ally.Health > 100){
                         ally.Health = 100;
                     }
                     Console.WriteLine($"La vida del aliado es {ally.Health} despues de curarlo");
+                    i = i + 1;
 
             }  
         }
