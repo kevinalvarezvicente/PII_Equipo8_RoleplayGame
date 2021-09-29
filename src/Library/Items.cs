@@ -2,19 +2,19 @@ using System;
 
 namespace Library
 {
-    public class Items
+    class Item
     {
-        private int damage {get; set;}
-        public int Damage{get;}
-        public string Name{get; set;}
+            public string Name { get; }
+            public int DamageValue { get; }
+            public int DefendValue { get; }
+            public double MagicLevel { get; }
 
-        public int GetDamage()
-        {
-            return this.Damage;
-        }
-        public string GetName()
-        {
-            return this.Name;
-        }
+            public Item(String name, int damageValue, int defendValue, double magicLevel)
+            {
+                this.Name = name;
+                this.DamageValue = damageValue;
+                this.DefendValue = defendValue;
+                this.MagicLevel = magicLevel;
+            }
     }
 } 

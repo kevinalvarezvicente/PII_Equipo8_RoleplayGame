@@ -1,4 +1,5 @@
 using System;
+
 namespace Library
 {
     public class Elves
@@ -12,7 +13,6 @@ namespace Library
         public bool Broken { get; set; }
         public int HealSkill { get; set; }
 
- 
         public Elves (string name)
         {
             this.Name = name;
@@ -21,23 +21,7 @@ namespace Library
             this.Defense = 80;
             this.Broken = false;
             this.HealSkill = 10;
-        }
- 
-        void AddItem(Items item) 
-        {
- 
-        }
- 
-        void UpdateItem(Items item)
-        {
- 
-        }
- 
-        void DeleteItem(Items item)
-        {
- 
-        }
- 
+        }  
         public int getAttack()
         {
             Console.WriteLine(this.Damage);
@@ -46,6 +30,7 @@ namespace Library
  
         public int getDefense()
         {
+           Console.WriteLine(this.Defense);
            return this.Defense;
         }
 
@@ -54,6 +39,7 @@ namespace Library
                 while(enemy.Health > 0 && i == 0){
                     enemy.Health = enemy.Health - this.Damage;
                     Console.WriteLine($"La vida del enemigo después del ataque es: {enemy.Health}");
+
                     i = i + 1;
                 } 
         }
@@ -64,6 +50,7 @@ namespace Library
                         ally.Health = 100;
                     }
                     Console.WriteLine($"La vida del aliado después de curarlo es: {ally.Health}");
+
             }  
         }
 
@@ -71,8 +58,8 @@ namespace Library
         {
             if(Broken == false)
             {
-                this.Damage = this.Damage + item.Damage;
-                this.Defense = this.Defense + item.Defense;
+                this.Damage = this.Damage + item.AttackValue;
+                this.Defense = this.Defense + item.DefendValue;
                 this.Health = this.Health + this.Defense;
                 
             }
