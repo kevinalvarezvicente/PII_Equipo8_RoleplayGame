@@ -50,7 +50,6 @@ namespace Library
                         ally.Health = 100;
                     }
                     Console.WriteLine($"La vida del aliado después de curarlo es: {ally.Health}");
-
             }  
         }
 
