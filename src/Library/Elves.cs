@@ -48,7 +48,7 @@ namespace Library
                     if (ally.Health > 100){
                         ally.Health = 100;
                     }
-                    Console.WriteLine($"La vida del aliado despues de curarlo es: {ally.Health}");
+                    Console.WriteLine($"La vida del aliado después de curarlo es: {ally.Health}");
             }  
         }
 
