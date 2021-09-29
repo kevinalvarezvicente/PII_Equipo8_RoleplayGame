@@ -38,7 +38,8 @@ namespace Library
             int i = 0;
                 while(enemy.Health > 0 && i == 0){
                     enemy.Health = enemy.Health - this.Damage;
-                    Console.WriteLine($"La vida del enemigo despues del ataque es: {enemy.Health}");
+                    Console.WriteLine($"La vida del enemigo después del ataque es: {enemy.Health}");
+
                     i = i + 1;
                 } 
         }
