@@ -4,10 +4,16 @@ using System.Text;
 
 namespace Library
 {
-    class Character
+    public class Character
     {
+        public string Name {get; protected set;}
+        public int Health {get; protected set;}
+        public int Damage {get; protected set;}
+        public int Defense {get; protected set;}
+        public int VictoryPoints {get; protected set;}
+        
         List<Item> ListItems = new List<Item>();
-        public void addItem(Item item)
+        void addItem(Item item)
         {
             if (ListItems.Count <= 3)
             {
@@ -22,7 +28,7 @@ namespace Library
             }
         }
 
-        public void deleteItem(Item item)
+        void deleteItem(Item item)
         {
             ListItems.Remove(item);
             Console.WriteLine($"The item {item.Name} was removed.");
@@ -40,7 +46,7 @@ namespace Library
 
         public int getAttack()
         {
-            Console.WriteLine($"The Damage of the Wizard is {this.Damage}");
+            Console.WriteLine($"The Damage is {this.Damage}");
             return this.Damage;
         }
 
