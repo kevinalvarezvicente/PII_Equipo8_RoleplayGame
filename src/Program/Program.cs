@@ -7,7 +7,7 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            Items Martillo = new Items("Goloso", 10, 40, 0);
+            Item Martillo = new Item("Goloso", 10, 40, 0);
 
             Dwarves D1 = new Dwarves("Julio");
             Dwarves D2 = new Dwarves("José");

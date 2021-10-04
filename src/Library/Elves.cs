@@ -2,18 +2,18 @@ using System;
 
 namespace Library
 {
-    public class Elves
+    public class Elves : Character
     {
         public int IdElves{get; private set;}
-        public string Name {get;}
-        public int Health {get; private set;}
-        public int Damage {get; private set;}
-        public int Defense {get; private set;}
+        // public string Name {get;}
+        // public int Health {get; private set;}
+        // public int Damage {get; private set;}
+        // public int Defense {get; private set;}
         public Array[] ObjectItem {get; private set;}
         public bool Broken { get; set; }
         public int HealSkill { get; set; }
 
-        public Elves (string name)
+        public Elves (string name, int VictoryPoints)
         {
             this.Name = name;
             this.Health = 150;
@@ -21,12 +21,13 @@ namespace Library
             this.Defense = 80;
             this.Broken = false;
             this.HealSkill = 10;
+            this.VictoryPoints = 0;
         }  
-        public int getAttack()
-        {
-            Console.WriteLine(this.Damage);
-            return this.Damage;
-        }
+        // public int getAttack()
+        // {
+        //     Console.WriteLine(this.Damage);
+        //     return this.Damage;
+        // }
  
         public int getDefense()
         {
@@ -53,11 +54,11 @@ namespace Library
             }  
         }
 
-        public void AddSword(Items item)
+        void AddSword(Item item)
         {
             if(Broken == false)
             {
-                this.Damage = this.Damage + item.AttackValue;
+                this.Damage = this.Damage + item.DamageValue;
                 this.Defense = this.Defense + item.DefendValue;
                 this.Health = this.Health + this.Defense;
                 
