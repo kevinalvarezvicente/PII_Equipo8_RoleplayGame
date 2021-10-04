@@ -1,5 +1,4 @@
 using System;
-using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -9,13 +8,9 @@ namespace Library
     {
 
        List<Item> ListItems = new List<Item>();
-        List<Spell> BookSpells = new List<Spell>();
+       List<MagicElements> ListElements = new List<MagicElements>();
+        List<Spells> BookSpells = new List<Spells>();
 
-        private int IdWizard { get; }
-        private string Name { get; }
-        public int Health { get; set; }
-        private int Damage { get; set; }
-        public int Defense { get; set; }
         private int Item_Equipped_DamageValue { get; set; }
         private int Item_Equipped_DefendValue { get; set; }
         private double Item_Equipped_MagicLevel { get; set; }
@@ -26,13 +21,13 @@ namespace Library
 
         private double MagicLevel { get; set; }
 
-        public CharacterWizard(int idWizard, string name)
+        public CharacterWizard(int id, string name)
         {
-            this.IdWizard = idWizard;
+            this.Id = id;
             this.Name = name;
             this.Health = 400;
-            this.Damage = 50;
-            this.Defense = 200;
+            this.AttackValue = 50;
+            this.DefenseValue = 200;
             this.MagicLevel = 0.5;
             this.Item_Equipped_DamageValue = 0;
             this.Item_Equipped_DefendValue = 0;
@@ -45,14 +40,14 @@ namespace Library
 
         public int getAttack()
         {
-            Console.WriteLine($"The Damage of the Wizard is {this.Damage}");
-            return this.Damage;
+            Console.WriteLine($"The Damage of the Wizard is {this.AttackValue}");
+            return this.AttackValue;
         }
 
         public int getDefense()
         {
-            Console.WriteLine($"The Defense of the Wizard is {this.Defense}");
-            return this.Defense;
+            Console.WriteLine($"The Defense of the Wizard is {this.DefenseValue}");
+            return this.DefenseValue;
         }
 
         public void studyMagic()
@@ -67,33 +62,33 @@ namespace Library
 
         
 
-        public void attackElf(CharacterElf Elf) {
-            if (Elf.Defense > 0) {
-                int remainingDamage = Elf.Defense - this.Damage ;
+        public void attackElf(Elves Elf) {
+            if (Elf.DefenseValue > 0) {
+                int remainingDamage = Elf.DefenseValue - this.AttackValue ;
                 if (remainingDamage > 0)
                 {
-                    Elf.Defense = Elf.Defense - this.Damage;
+                    Elf.DefenseValue = Elf.DefenseValue - this.AttackValue;
                 } else {
-                    remainingDamage = this.Damage - Elf.Defense;
-                    Elf.Defense = 0;
+                    remainingDamage = this.AttackValue - Elf.DefenseValue;
+                    Elf.DefenseValue = 0;
                     Elf.Health = Elf.Health - remainingDamage;
                 }
             } 
         }
 
-        public void attackDwarf(CharacterDwarf Dwarf)
+        public void attackDwarf(Dwarves Dwarf)
         {
-            if (Dwarf.Defense > 0)
+            if (Dwarf.DefenseValue > 0)
             {
-                int remainingDamage = Dwarf.Defense - this.Damage;
+                int remainingDamage = Dwarf.DefenseValue - this.AttackValue;
                 if (remainingDamage > 0)
                 {
-                    Dwarf.Defense = Dwarf.Defense - this.Damage;
+                    Dwarf.DefenseValue = Dwarf.DefenseValue - this.AttackValue;
                 }
                 else
                 {
-                    remainingDamage = this.Damage - Dwarf.Defense;
-                    Dwarf.Defense = 0;
+                    remainingDamage = this.AttackValue - Dwarf.DefenseValue;
+                    Dwarf.DefenseValue = 0;
                     Dwarf.Health = Dwarf.Health - remainingDamage;
                 }
             }
@@ -101,17 +96,17 @@ namespace Library
 
         public void attackWizard(CharacterWizard Wizard)
         {
-            if (Wizard.Defense > 0)
+            if (Wizard.AttackValue > 0)
             {
-                int remainingDamage = Wizard.Defense - this.Damage;
+                int remainingDamage = Wizard.DefenseValue - this.AttackValue;
                 if (remainingDamage > 0)
                 {
-                    Wizard.Defense = Wizard.Defense - this.Damage;
+                    Wizard.DefenseValue = Wizard.DefenseValue - this.AttackValue;
                 }
                 else
                 {
-                    remainingDamage = this.Damage - Wizard.Defense;
-                    Wizard.Defense = 0;
+                    remainingDamage = this.AttackValue - Wizard.DefenseValue;
+                    Wizard.DefenseValue = 0;
                     Wizard.Health = Wizard.Health - remainingDamage;
                 }
             }
@@ -129,12 +124,12 @@ namespace Library
             if (Cargado == true)
             {
                 if (EquippedWeapon == true) {
-                    this.Damage = this.Damage - this.Item_Equipped_DamageValue;
-                    this.Defense = this.Defense - this.Item_Equipped_DefendValue;
+                    this.AttackValue = this.AttackValue - this.Item_Equipped_DamageValue;
+                    this.DefenseValue = this.DefenseValue - this.Item_Equipped_DefendValue;
                     this.MagicLevel = this.MagicLevel - this.Item_Equipped_MagicLevel;
                 }
-                this.Damage = this.Damage + item.DamageValue;
-                this.Defense = this.Defense + item.DefendValue;
+                this.AttackValue = this.AttackValue + item.DamageValue;
+                this.DefenseValue = this.DefenseValue + item.DefendValue;
                 this.MagicLevel = this.MagicLevel + item.MagicLevel;
                 this.Item_Equipped_DamageValue = item.DamageValue;
                 this.Item_Equipped_DefendValue = item.DefendValue;
@@ -147,7 +142,7 @@ namespace Library
             
         }
 
-        public void studySpells(Spell spell)
+        public void studySpells(Spells spell)
         {
             int delay = 18000;
             Console.WriteLine($"Notice: Your life will be reduced");
@@ -158,10 +153,10 @@ namespace Library
             Console.WriteLine($"Spell called {spell.Name} was added!");
         }
 
-        public void EquipSpell(Spell spell)
+        public void AddSpell(Spells spell)
         {
             Boolean Cargado = false;
-            foreach (Spell element in BookSpells)
+            foreach (Spells element in BookSpells)
             {
                 if (spell.Equals(element))
                 {
@@ -172,14 +167,14 @@ namespace Library
             {
                 if (EquippedSpell == true)
                 {
-                    this.Damage = this.Damage - this.Spell_Equipped_DamageValue;
-                    this.Defense = this.Defense - this.Spell_Equipped_DefenseValue;
+                    this.AttackValue = this.AttackValue - this.Spell_Equipped_DamageValue;
+                    this.DefenseValue = this.DefenseValue - this.Spell_Equipped_DefenseValue;
                 }
 
-                this.Damage = this.Damage + spell.DamageValue;
-                this.Defense = this.Defense + spell.DefenseValue;
-                this.Spell_Equipped_DamageValue = spell.DamageValue;
-                this.Spell_Equipped_DefenseValue = spell.DefenseValue;
+                this.AttackValue = this.AttackValue + spell.Attack;
+                this.DefenseValue = this.DefenseValue + spell.Defense;
+                this.Spell_Equipped_DamageValue = spell.Attack;
+                this.Spell_Equipped_DefenseValue = spell.Defense;
                 Console.WriteLine($"The spell {spell.Name} was equipped");
             }
             else
@@ -190,9 +185,51 @@ namespace Library
 
         }
 
+        public void RemoveSpell(Spells spell)
+        {
+            Boolean Cargado = false;
+            foreach (Spells element in BookSpells)
+            {
+                if (spell.Equals(element))
+                {
+                    Cargado = true;
+                }
+            }
+            if (Cargado == true)
+            {
+                if (EquippedSpell == true)
+                {
+                    this.AttackValue = this.AttackValue - this.Spell_Equipped_DamageValue;
+                    this.DefenseValue = this.DefenseValue - this.Spell_Equipped_DefenseValue;
+                }
+
+                Console.WriteLine($"The spell {spell.Name} was unequipped");
+            }
+        }
+
         public void healWizard(CharacterWizard wizard)
         {
-            Console.WriteLine($"La vida del aliado es {ally.Health} despues de curarlo");
+            Console.WriteLine($"La vida del aliado es {wizard.Health} despues de curarlo");
+        }
+
+        public void AddElement(MagicElements elements)
+        {
+            if (ListItems.Count <= 3)
+            {
+                ListElements.Add(elements);
+                Console.WriteLine($"The item {elements.Name} was added.");
+            }
+            else
+            {
+                Console.WriteLine($"You can not have more than 4 elements so remove one.");
+                Console.WriteLine($"The item called {elements.Name} was not added.");
+            }
+        }
+
+        public void RemoveElements(MagicElements elements)
+        {
+            ListElements.Remove(elements);
+            Console.WriteLine($"The item {elements.Name} was removed.");
         }
     }
 }

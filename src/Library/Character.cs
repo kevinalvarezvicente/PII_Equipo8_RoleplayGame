@@ -6,14 +6,15 @@ namespace Library
 {
     public class Character
     {
-        public string Name {get; protected set;}
-        public int Health {get; protected set;}
-        public int Damage {get; protected set;}
-        public int Defense {get; protected set;}
-        public int VictoryPoints {get; protected set;}
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Health { get; set; }
+        public int AttackValue { get; set; }     
+        public int DefenseValue { get; set; }
         
+
         List<Item> ListItems = new List<Item>();
-        void addItem(Item item)
+        public void AddItem(Item item)
         {
             if (ListItems.Count <= 3)
             {
@@ -28,7 +29,7 @@ namespace Library
             }
         }
 
-        void deleteItem(Item item)
+        public void RemoveItem(Item item)
         {
             ListItems.Remove(item);
             Console.WriteLine($"The item {item.Name} was removed.");
@@ -44,10 +45,38 @@ namespace Library
             }
         }
 
+        /*
         public int getAttack()
         {
-            Console.WriteLine($"The Damage is {this.Damage}");
-            return this.Damage;
+            Console.WriteLine($"The Damage of the Wizard is {this.AttackValue}");
+            return this.AttackValue;
+        }
+        */
+
+        public void Cure()
+        {
+             Console.WriteLine("You want to use a potion? y/n");
+             
+             string r = Console.ReadLine();
+             if (r == "y" || r == "Y")
+             {
+                this.Health = this.Health + 50;
+             }
+             else if (r == "n" || r == "N")
+             {
+                
+             }
+             else
+             {
+                 Console.WriteLine("You have touch a wrong key");
+             }
+        }
+
+        public void ReceiveAttack(int power, Character enemy)
+        {
+            this.Health = this.Health - enemy.AttackValue;
+            Console.WriteLine($"your remaining life is {this.Health}");
+            
         }
 
     }

@@ -4,25 +4,20 @@ namespace Library
 {
     public class Elves : Character
     {
-        public int IdElves{get; private set;}
-        // public string Name {get;}
-        // public int Health {get; private set;}
-        // public int Damage {get; private set;}
-        // public int Defense {get; private set;}
         public Array[] ObjectItem {get; private set;}
-        public bool Broken { get; set; }
         public int HealSkill { get; set; }
 
-        public Elves (string name, int VictoryPoints)
+        public Elves (int id, string name, int VictoryPoints)
         {
+            this.Id = id;
             this.Name = name;
             this.Health = 150;
-            this.Damage = 20;
-            this.Defense = 80;
-            this.Broken = false;
+            this.AttackValue = 20;
+            this.DefenseValue = 80;
             this.HealSkill = 10;
-            this.VictoryPoints = 0;
+            // this.VictoryPoints = 0;
         }  
+        
         // public int getAttack()
         // {
         //     Console.WriteLine(this.Damage);
@@ -31,14 +26,14 @@ namespace Library
  
         public int getDefense()
         {
-           Console.WriteLine(this.Defense);
-           return this.Defense;
+           Console.WriteLine(this.DefenseValue);
+           return this.DefenseValue;
         }
 
         public void Attack(Elves enemy){
             int i = 0;
                 while(enemy.Health > 0 && i == 0){
-                    enemy.Health = enemy.Health - this.Damage;
+                    enemy.Health = enemy.Health - this.AttackValue;
                     Console.WriteLine($"La vida del enemigo después del ataque es: {enemy.Health}");
 
                     i = i + 1;
@@ -54,15 +49,5 @@ namespace Library
             }  
         }
 
-        void AddSword(Item item)
-        {
-            if(Broken == false)
-            {
-                this.Damage = this.Damage + item.DamageValue;
-                this.Defense = this.Defense + item.DefendValue;
-                this.Health = this.Health + this.Defense;
-                
-            }
-        }
     }
 }

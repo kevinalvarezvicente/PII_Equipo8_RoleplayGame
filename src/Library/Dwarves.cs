@@ -1,87 +1,72 @@
 using System;
+using System.Collections.Generic;
 
 namespace Library
 {
-    public class Dwarves
+    public class Dwarves : Character
     {
-        private string Name { get; set; }
-
-        public int Damage { get; set; }     
-
-        public int Defense { get; set; }
-
-        public int Health { get; set; }
-
-        public Items weapon { get; set; }
-
-        public Items armour { get; set; }
-
-        public bool Broken { get; set; }
-
+        List<Item> ListItems = new List<Item>();
         public int HealSkill { get; set; }
+        private Boolean EquippedWeapon { get; set; }
 
 
-        public Dwarves(string name)
+        public Dwarves(int id, string name)
         {
+            this.Id = id;
             this.Name = name; 
-            this.Damage = 25;
-            this.Defense = 70;
+            this.AttackValue = 25;
+            this.DefenseValue = 70;
             this.Health = 100;
-            this.Broken = false;
             this.HealSkill = 20;
+            this.EquippedWeapon = EquippedWeapon;
         }
 
         public int getAttack()
         {
-            Console.WriteLine($"El daño de Julio es {this.Damage}");
-            return this.Damage;
+            Console.WriteLine($"El daño de Julio es {this.AttackValue}");
+            return this.AttackValue;
         }
  
         public int getDefense()
         {
-            Console.WriteLine($"La defensa de Julio es {this.Defense}");
-            return this.Defense;
+            Console.WriteLine($"La defensa de Julio es {this.DefenseValue}");
+            return this.DefenseValue;
         }
 
-        public void EquipWeapons(Items item)
+        public void EquipWeapons(Item item)
         {
-            if(item.Broken == false)
+            Boolean Cargado = false;
+            foreach (Item element in ListItems){
+                if (item.Equals(element))
+                {
+                    Cargado = true;
+                }
+            }
+            if (Cargado == true)
             {
-                this.Damage = this.Damage + item.AttackValue;
-                this.Defense = this.Defense + item.DefendValue;
-                this.Health = this.Health + this.Defense;
-                
+                if (EquippedWeapon == true) {
+                    this.AttackValue = this.AttackValue - item.DamageValue;
+                    this.DefenseValue = this.DefenseValue - item.DefendValue;
+                }
+                this.AttackValue = this.AttackValue + item.DamageValue;
+                this.DefenseValue = this.DefenseValue + item.DefendValue;
+                Console.WriteLine($"The element {item.Name} was equipped.");
             }
+            else {
+                Console.WriteLine($"You must equip the item called {item.Name} into your list to be capable of use it.");
+            }
+            
         }
-        public void UnequipWeapons(Items item)
+        public void UnequipWeapons(Item item)
         {
-                this.Damage = this.Damage - item.AttackValue;
-                this.Defense = this.Defense - item.DefendValue;
-                this.Health = this.Health - this.Defense;
-        }
-
-        public void UnequipBrokenWeapons(Items item)
-        {
-            if(item.Broken == true)
-            {
-                this.Damage = this.Damage - item.AttackValue;
-                this.Defense = this.Defense - item.DefendValue;
-                this.Health = this.Health - this.Defense;
-                
-            }
-        }
-
-        public bool IfWeaponIsBroken(Items item){
-            if(item.Duration == 0){
-                item.Broken = true;
-            }
-            return item.Broken;
-        } 
-        
+                this.AttackValue = this.AttackValue - item.DamageValue;
+                this.DefenseValue = this.DefenseValue - item.DefendValue;
+                this.Health = this.Health - this.DefenseValue;
+        }        
         public void Attack(Dwarves enemy){
             int i = 0;
                 while(enemy.Health > 0 && i == 0){
-                    enemy.Health = enemy.Health - this.Damage;
+                    enemy.Health = enemy.Health - this.AttackValue;
                     Console.WriteLine($"Al enemigo le queda {enemy.Health} de vida despues del ataque");
                     i = i + 1;
                 } 
